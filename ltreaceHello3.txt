@@ -1,0 +1,4 @@
+dlopen("./libHello.so", 1)                       = 0x55ab92d8e280
+dlsym(0x55ab92d8e280, "hello_message")           = 0x7f94359dc61a
+hello Ariel
++++ exited (status 0) +++
