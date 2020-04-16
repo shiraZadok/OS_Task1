@@ -22,27 +22,26 @@ int t_clone(void * input){
     execvp(args[0],args);
 }
 
-void t_daemon(){
+int t_daemon(void * input){
     char* args[]= {"./daemon",NULL};
     execvp(args[0],args);
 }
 
 
 int main(){
+    int result2 = clone(t_daemon,child_stack+STACK_SIZE,CLONE_PARENT,0);
+    printf("clone result2 = %d\n", result2);
+    
     pid_t pid1 = fork();
     printf("pid is: %d",pid1);
     if(pid1==0) {
         char* args[] = {"./fork",NULL};
-        int result = clone(t_clone,child_stack+STACK_SIZE,CLONE_PARENT,0);
+        int result1 = clone(t_clone,child_stack+STACK_SIZE,CLONE_PARENT,0);
+        printf("clone result1 = %d\n", result1);
         execvp(args[0],args);
-
     }
 
     else{
-        pid_t pid2 = fork();
-        if(pid2==0) {
-           t_daemon();
-        }
         println("parent");
     }
 

@@ -1,13 +1,16 @@
-all:task1 task2 task3
-task1: main2_1.c allSubtasks.h
+all:task1 task2 task3 task4
+task1: main2_1.c 
 	gcc -o fork main2_1.c
 
-task2: main2_2.c allSubtasks.h
+task2: main2_2.c 
 	gcc -o clone main2_2.c
 
-task3: main2_3.c allSubtasks.h
+task3: main2_3.c 
 	gcc -o daemon main2_3.c
+
+task4: main2_4
+	gcc -o all main2_4.c
 
 .PHONY: all clean
 clean:
-	-rm fork clone daemon
+	-rm fork clone daemon all
