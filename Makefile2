@@ -13,4 +13,4 @@ task4: main2_4
 
 .PHONY: all clean
 clean:
-	-rm fork clone daemon all
+	-rm fork clone daemon all main2_4

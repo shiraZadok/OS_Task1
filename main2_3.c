@@ -19,9 +19,9 @@ int subtask3(){
         printf("The new daemon process is starting\n");
 
         //close output channels 
-        close(stdout);
-        close(stdin);
-        close(stderr);
+        close(STDERR_FILENO);
+        close(STDIN_FILENO);
+        close(STDOUT_FILENO);
 
         //open log
         openlog ("newdaemon", LOG_PID, LOG_DAEMON);
